@@ -4,7 +4,9 @@ class Header extends Component{
   render(){
     return(
       <React.Fragment>
-        <h3>My Apartment Application</h3>
+        <div id="header">
+          <h3 style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "28px" }}>My Apartment Application</h3>
+        </div>
       </React.Fragment>
     )
   }

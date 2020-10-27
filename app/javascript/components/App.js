@@ -25,6 +25,12 @@ class App extends Component {
       apartments: mockApartments
     }
   }
+
+  createNewApartment = (newApartment) => {
+    console.log(newApartment)
+  }
+
+
   render () {
     const {
       logged_in,
@@ -46,7 +52,17 @@ class App extends Component {
           <Route path="/apartmentindex" render={ (props) => <ApartmentIndex
             apartments={this.state.apartments} /> } />
 
-          <Route path="/apartmentnew" component={ ApartmentNew } />
+          { logged_in &&
+            <Route
+              path="/apartmentnew"
+              render={ (props) =>
+                <ApartmentNew
+                  createNewApartment={ this.createNewApartment }
+                  current_user={ current_user }
+                />
+              }
+            />
+          }
 
           <Route
             path="/apartmentshow/:id"

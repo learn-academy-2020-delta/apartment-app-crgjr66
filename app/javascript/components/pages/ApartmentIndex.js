@@ -6,7 +6,7 @@ class ApartmentIndex extends Component{
     console.log(this.props.apartments)
     return(
       <React.Fragment>
-        <h3>Apartment Index</h3>
+        <h3 style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "28px" }}>Apartment Index</h3>
         <div id="index-body">
           { this.props.apartments.map((apartment, index) => {
             return(
