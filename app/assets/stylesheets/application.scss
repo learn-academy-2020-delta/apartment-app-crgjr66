@@ -27,7 +27,7 @@ body {
 .button {
   border: 1px solid black;
   padding: 15px;
-  background-color: #AEC3B0;
+  background-color: #abd1a1;
   border-radius: 10px;
 }
 
@@ -45,7 +45,7 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #598392;
+  background-color: #68a158;
   padding: 5px;
 }
 
@@ -81,4 +81,10 @@ img {
   padding: 20px;
   border-radius: 20px;
   width: 30%;
+}
+
+// ---SHOW---
+
+#show-body {
+  margin-left: 20px;
 }
