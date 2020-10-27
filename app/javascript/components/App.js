@@ -29,7 +29,9 @@ class App extends Component {
     const {
       logged_in,
       sign_in_route,
-      sign_out_route
+      sign_up_route,
+      sign_out_route,
+      current_user
     } = this.props
     return (
       <Router>
@@ -56,7 +58,12 @@ class App extends Component {
           <Route component={ NotFound } />
         </Switch>
 
-        <Footer />
+        <Footer
+        logged_in={ logged_in }
+        sign_in_route={ sign_in_route }
+        sign_up_route={ sign_up_route }
+        sign_out_route={ sign_out_route }
+        />
       </Router>
     )
   }
