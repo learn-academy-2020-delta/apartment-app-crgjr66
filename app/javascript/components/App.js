@@ -35,27 +35,30 @@ class App extends Component {
     } = this.props
     return (
       <Router>
-        <h1>Hello World!!!</h1>
-        { logged_in &&
-          <div>
-            <a href={ sign_out_route }>Sign Out</a>
-          </div>
-        }
 
-        { !logged_in &&
-          <div>
-            <a href={ sign_in_route }>Sign In</a>
-          </div>
-        }
         <Header />
 
         <Switch>
           <Route exact path="/" component={ Home } />
+
           <Route path="/apartmentedit/:id" component={ ApartmentEdit } />
+
           <Route path="/apartmentindex" render={ (props) => <ApartmentIndex
             apartments={this.state.apartments} /> } />
+
           <Route path="/apartmentnew" component={ ApartmentNew } />
-          <Route path="/apartmentshow/:id" component={ ApartmentShow } />
+
+          <Route
+            path="/apartmentshow/:id"
+            render={ (props) => {
+              let localid = props.match.params.id
+              let apartment = this.state.apartments.find(apt => apt.id === parseInt(localid))
+              return (
+                <ApartmentShow apartment={ apartment } />
+              )
+            } }
+          />
+
           <Route component={ NotFound } />
         </Switch>
 
