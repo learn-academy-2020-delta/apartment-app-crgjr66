@@ -14,3 +14,71 @@
  *= require_self
  */
  @import 'bootstrap';
+
+ * {
+  color: #01161E;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #FFFAFA;
+}
+
+.button {
+  border: 1px solid black;
+  padding: 15px;
+  background-color: #AEC3B0;
+  border-radius: 10px;
+}
+
+// ---HEADER---
+#header {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #598392;
+}
+
+// ---FOOTER---
+.nav {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #598392;
+  padding: 5px;
+}
+
+a {
+  color: #01161E;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #EFF6E0;
+}
+
+// ---HOME---
+img {
+  width: 100vw;
+}
+
+#home {
+  height: 100vh;
+  text-align: center;
+}
+
+// ---INDEX---
+
+#index-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.index-card {
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 20px;
+  width: 30%;
+}

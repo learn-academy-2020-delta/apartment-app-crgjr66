@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+// import image from '../assets/images/apt_bldg.jpg'
 
 class Home extends Component{
   render(){

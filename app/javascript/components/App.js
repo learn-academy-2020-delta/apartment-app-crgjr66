@@ -52,17 +52,18 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={ Home } />
           <Route path="/apartmentedit/:id" component={ ApartmentEdit } />
-          <Route path="/apartmentindex" component={ ApartmentIndex } />
+          <Route path="/apartmentindex" render={ (props) => <ApartmentIndex
+            apartments={this.state.apartments} /> } />
           <Route path="/apartmentnew" component={ ApartmentNew } />
           <Route path="/apartmentshow/:id" component={ ApartmentShow } />
           <Route component={ NotFound } />
         </Switch>
 
         <Footer
-        logged_in={ logged_in }
-        sign_in_route={ sign_in_route }
-        sign_up_route={ sign_up_route }
-        sign_out_route={ sign_out_route }
+          logged_in={ logged_in }
+          sign_in_route={ sign_in_route }
+          sign_up_route={ sign_up_route }
+          sign_out_route={ sign_out_route }
         />
       </Router>
     )
