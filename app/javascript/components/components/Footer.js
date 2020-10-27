@@ -15,23 +15,30 @@ class Footer extends Component {
               <div id="footer">
                   <Nav style={{ display: "flex", justifyContent: "left" }} className="nav">
                       <NavItem>
-                          <NavLink style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "18px" }} href="/">Home</NavLink>
+                          <a style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "18px", padding: "10px" }} href="/">Home
+                          </a>
                       </NavItem>
                       <NavItem>
-                          <NavLink style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "18px" }} href="/apartmentindex">All the Apartments</NavLink>
+                          <a style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "18px", padding: "10px" }} href="/apartmentindex">All the Apartments
+                          </a>
                       </NavItem>
                       { logged_in &&
-                        <NavItem>
-                            <a style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "18px" }} href={ sign_out_route }>Sign Out</a>
-                        </NavItem>
+                        <>
+                          <NavItem>
+                              <a style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "18px", padding: "10px" }} href={ sign_out_route }>Sign Out</a>
+                          </NavItem>
+                          <NavItem>
+                            <a style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "18px", padding: "10px" }} href="/apartmentnew">Add a New Apartment</a>
+                          </NavItem>
+                        </>
                       }
                       { !logged_in &&
                         <>
                           <NavItem>
-                              <a style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "18px" }} href={ sign_in_route }>Sign In</a>
+                              <a style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "18px", padding: "10px" }} href={ sign_in_route }>Sign In</a>
                           </NavItem>
                           <NavItem>
-                              <a style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "18px" }} href={ sign_up_route }>Sign Up</a>
+                              <a style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "18px", padding: "10px" }} href={ sign_up_route }>Sign Up</a>
                           </NavItem>
                         </>
                       }

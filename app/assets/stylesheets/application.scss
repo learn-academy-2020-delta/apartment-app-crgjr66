@@ -21,7 +21,7 @@
 }
 
 body {
-  background-color: #FFFAFA;
+  background-color: #dcded9;
 }
 
 .button {
@@ -35,13 +35,14 @@ body {
 #header {
   margin-bottom: 20px;
   padding: 10px;
-  background-color: #598392;
+  background-color: #acd177 !important;
+  text-align:center !important;
 }
 
 // ---FOOTER---
 .nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   position: fixed;
   bottom: 0;
   width: 100%;
