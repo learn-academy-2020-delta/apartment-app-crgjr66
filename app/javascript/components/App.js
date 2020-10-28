@@ -30,6 +30,9 @@ class App extends Component {
     console.log(newApartment)
   }
 
+  updateApartment = (apartment, id) => {
+    console.log("apartment", apartment, "id", id)
+  }
 
   render () {
     const {
@@ -47,8 +50,6 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={ Home } />
 
-          <Route path="/apartmentedit/:id" component={ ApartmentEdit } />
-
           <Route path="/apartmentindex" render={ (props) => <ApartmentIndex
             apartments={this.state.apartments} /> } />
 
@@ -61,6 +62,23 @@ class App extends Component {
                   current_user={ current_user }
                 />
               }
+            />
+          }
+
+          { logged_in &&
+            <Route
+              path="/apartmentedit/:id"
+              render={ (props) => {
+                let id = props.match.params.id
+                let apartment = this.state.apartments.find(apartment => apartment.id === parseInt(id))
+                return (
+                  <ApartmentEdit
+                    updateApartment={ this.updateApartment }
+                    current_user={ current_user }
+                    apartment={ apartment }
+                  />
+                )
+              }}
             />
           }
 
