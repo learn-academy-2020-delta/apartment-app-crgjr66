@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import {
   Button,
+  Col,
   Form,
   FormGroup,
   Input,
-  Label
+  Label,
+  Row
 } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
 
@@ -43,45 +45,57 @@ class ApartmentEdit extends Component{
   render(){
     return(
       <React.Fragment>
-        <h3>Edit Apartment</h3>
+        <h3 style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "28px" }}>Edit Apartment</h3>
         <div className="form-body">
           <Form>
-            <FormGroup>
-              <Label>Street</Label>
-              <Input
-                type="text"
-                name="street"
-                onChange={ this.handleChange }
-                value={ this.state.form.street }
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label>City</Label>
-              <Input
-                type="text"
-                name="city"
-                onChange={ this.handleChange }
-                value={ this.state.form.city }
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label>State</Label>
-              <Input
-                type="text"
-                name="state"
-                onChange={ this.handleChange }
-                value={ this.state.form.state }
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label>Manager's Name</Label>
-              <Input
-                type="text"
-                name="manager"
-                onChange={ this.handleChange }
-                value={ this.state.form.manager }
-              />
-            </FormGroup>
+            <Row form>
+              <Col md={6}>
+                <FormGroup>
+                  <Label>Street</Label>
+                  <Input
+                    type="text"
+                    name="street"
+                    onChange={ this.handleChange }
+                    value={ this.state.form.street }
+                  />
+                </FormGroup>
+              </Col>
+              <Col md={6}>
+                <FormGroup>
+                  <Label>City</Label>
+                  <Input
+                    type="text"
+                    name="city"
+                    onChange={ this.handleChange }
+                    value={ this.state.form.city }
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row form>
+              <Col md={6}>
+                <FormGroup>
+                  <Label>State</Label>
+                  <Input
+                    type="text"
+                    name="state"
+                    onChange={ this.handleChange }
+                    value={ this.state.form.state }
+                  />
+                  </FormGroup>
+              </Col>
+              <Col md={6}>
+                <FormGroup>
+                  <Label>Manager's Name</Label>
+                  <Input
+                    type="text"
+                    name="manager"
+                    onChange={ this.handleChange }
+                    value={ this.state.form.manager }
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
             <FormGroup>
               <Label>Manager's Email</Label>
               <Input
@@ -91,24 +105,30 @@ class ApartmentEdit extends Component{
                 value={ this.state.form.email }
               />
             </FormGroup>
-            <FormGroup>
-              <Label>Number of Bedrooms</Label>
-              <Input
-                type="number"
-                name="bedrooms"
-                onChange={ this.handleChange }
-                value={ this.state.form.bedrooms }
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label>Number of Bathrooms</Label>
-              <Input
-                type="number"
-                name="bathrooms"
-                onChange={ this.handleChange }
-                value={ this.state.form.bathrooms }
-              />
-            </FormGroup>
+            <Row form>
+              <Col md={6}>
+                <FormGroup>
+                  <Label>Number of Bedrooms</Label>
+                  <Input
+                    type="number"
+                    name="bedrooms"
+                    onChange={ this.handleChange }
+                    value={ this.state.form.bedrooms }
+                  />
+                </FormGroup>
+              </Col>
+              <Col md={6}>
+                <FormGroup>
+                  <Label>Number of Bathrooms</Label>
+                  <Input
+                    type="number"
+                    name="bathrooms"
+                    onChange={ this.handleChange }
+                    value={ this.state.form.bathrooms }
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
             {/* Setting up a radio button option for pets */}
             <FormGroup>
               <Label>Pets</Label>
