@@ -10,7 +10,8 @@ let mockApts = [
     price: "1000",
     bedrooms: 2,
     bathrooms: 2,
-    pets: "no"
+    pets: "no",
+    user_id: 1
 
   },
   {
@@ -23,7 +24,8 @@ let mockApts = [
     price: "500",
     bedrooms: 3,
     bathrooms: 2,
-    pets: "yes"
+    pets: "yes",
+    user_id: 1
 
   },
   {
@@ -36,7 +38,8 @@ let mockApts = [
     price: "2000",
     bedrooms: 6,
     bathrooms: 4,
-    pets: "yes"
+    pets: "yes",
+    user_id: 2
   }
 ]
 export default mockApts

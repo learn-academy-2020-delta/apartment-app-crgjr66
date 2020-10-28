@@ -19,7 +19,7 @@ class Footer extends Component {
                           </a>
                       </NavItem>
                       <NavItem>
-                          <a style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "18px", padding: "10px" }} href="/apartmentindex">All the Apartments
+                          <a style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "18px", padding: "10px" }} href="/apartmentindex">Apartment Listings
                           </a>
                       </NavItem>
                       { logged_in &&
@@ -29,6 +29,9 @@ class Footer extends Component {
                           </NavItem>
                           <NavItem>
                             <a style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "18px", padding: "10px" }} href="/apartmentnew">Add a New Apartment</a>
+                          </NavItem>
+                          <NavItem>
+                            <a style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "18px", padding: "10px" }} href="/myapartmentindex">My Apartments</a>
                           </NavItem>
                         </>
                       }

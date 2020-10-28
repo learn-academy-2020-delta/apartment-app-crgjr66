@@ -27,7 +27,7 @@ body {
 .button {
   border: 1px solid black;
   padding: 15px;
-  background-color: #abd1a1;
+  background-color: #7c96a3;
   border-radius: 10px;
 }
 
@@ -35,7 +35,7 @@ body {
 #header {
   margin-bottom: 20px;
   padding: 10px;
-  background-color: #acd177 !important;
+  background-color: #9ec6db !important;
   text-align:center !important;
 }
 
@@ -46,7 +46,7 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #68a158;
+  background-color: #327fa8;
   padding: 5px;
 }
 
@@ -88,4 +88,11 @@ img {
 
 #show-body {
   margin-left: 20px;
+}
+
+// ---NOT FOUND---
+
+#notfound {
+  height: 200vh;
+  text-align: center;
 }
