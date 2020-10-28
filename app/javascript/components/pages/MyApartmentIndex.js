@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 class MyApartmentIndex extends Component{
   render(){
-    console.log(this.props.apartments)
     return(
       <React.Fragment>
         <h3 style={{ color: "black", textShadow: "1px 1px 1px black", fontSize: "28px" }}>My Apartments</h3>
