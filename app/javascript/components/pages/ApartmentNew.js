@@ -53,7 +53,7 @@ class ApartmentNew extends Component{
             <Row form>
               <Col md={6}>
                 <FormGroup>
-                  <Label >Street</Label>
+                  <Label>Street</Label>
                     <Input
                       type="text"
                       name="street"
