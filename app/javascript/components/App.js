@@ -70,7 +70,42 @@ class App extends Component {
   }
 
   updateApartment = (apartment, id) => {
-    console.log("apartment", apartment, "id", id)
+    return fetch(`/apartments/${id}`, {
+      // converting an object to a string
+      body: JSON.stringify(apartment),
+      // specify the info being sent in JSON and the info returning should be JSON
+      headers: {
+        "Content-Type": "application/json"
+      },
+      // HTTP verb so the correct endpoint is invoked on the server
+      method: "PATCH"
+    })
+    .then(response => {
+      if(response.status === 200){
+        this.apartmentIndex()
+      }
+      return response
+    })
+    .catch(errors => {
+      console.log("edit errors", errors)
+    })
+  }
+
+  deleteApartment = (id) => {
+    return fetch(`apartments/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => {
+      alert("Remove this listing?")
+      this.apartmentIndex()
+      return response
+    })
+    .catch(errors => {
+      console.log("delete errors:", errors)
+    })
   }
 
   render () {
@@ -117,7 +152,10 @@ class App extends Component {
                 let apartments = this.state.apartments.filter(apartment => apartment.user_id === user)
                 console.log(apartments)
                 return (
-                  <MyApartmentIndex apartments={ apartments }/>
+                  <MyApartmentIndex
+                    apartments={ apartments }
+                    deleteApartment={ this.deleteApartment }
+                    />
                 )
               }}
             />
