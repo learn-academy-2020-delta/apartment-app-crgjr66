@@ -11,7 +11,9 @@ import MyApartmentIndex from './pages/MyApartmentIndex'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 
-import mockApartments from './mockApartments.js'
+// removing mock data in lieu of real data once connected
+// to the backend routes/functionality
+// import mockApartments from './mockApartments.js'
 
 import {
   BrowserRouter as Router,
@@ -23,12 +25,48 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      apartments: mockApartments
+      apartments: []
     }
   }
 
-  createNewApartment = (newApartment) => {
-    console.log(newApartment)
+  apartmentIndex = () => {
+    fetch("/apartments")
+    .then(response => {
+      return response.json()
+    })
+    .then(payload => {
+      this.setState({ apartments: payload })
+    })
+    .catch(errors => {
+      console.log("index errors:", errors)
+    })
+  }
+
+  componentDidMount(){
+    this.apartmentIndex()
+  }
+
+  // createNewApartment = (newApartment) => {
+  //   console.log(newApartment)
+  // }
+  createNewApartment = (apartment) => {
+    console.log(apartment)
+      return fetch("/apartments", {
+      body: JSON.stringify(apartment),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => {
+      if(response.status === 200){
+        this.apartmentIndex()
+      }
+      return response
+    })
+    .catch(errors => {
+      console.log("create errors:", errors)
+    })
   }
 
   updateApartment = (apartment, id) => {
@@ -49,11 +87,14 @@ class App extends Component {
         <Header />
 
         <Switch>
+          // Home page
           <Route exact path="/" component={ Home } />
 
+          // Index page
           <Route path="/apartmentindex" render={ (props) => <ApartmentIndex
             apartments={this.state.apartments} /> } />
 
+          // Create/New apt page
           { logged_in &&
             <Route
               path="/apartmentnew"
@@ -66,6 +107,7 @@ class App extends Component {
             />
           }
 
+          // Index personal apts
           { logged_in &&
             <Route
               path="/myapartmentindex"
@@ -81,6 +123,7 @@ class App extends Component {
             />
           }
 
+          // Edit apt page
           { logged_in &&
             <Route
               path="/apartmentedit/:id"
@@ -98,6 +141,7 @@ class App extends Component {
             />
           }
 
+          // Show page
           <Route
             path="/apartmentshow/:id"
             render={ (props) => {
@@ -109,6 +153,7 @@ class App extends Component {
             } }
           />
 
+          // ERROR page not found msg
           <Route
             path="/notfound"
             render={ (props) => {
