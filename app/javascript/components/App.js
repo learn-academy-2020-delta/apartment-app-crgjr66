@@ -10,6 +10,8 @@ import ApartmentShow from './pages/ApartmentShow'
 import MyApartmentIndex from './pages/MyApartmentIndex'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
+import CannotProcess from './pages/CannotProcess'
+import InternalServer from './pages/InternalServer'
 
 // removing mock data in lieu of real data once connected
 // to the backend routes/functionality
@@ -62,6 +64,12 @@ class App extends Component {
       if(response.status === 200){
         this.apartmentIndex()
       }
+      if(response.status === 404){
+      }
+      if(response.status === 422){
+      }
+      if(response.status === 500){
+      }
       return response
     })
     .catch(errors => {
@@ -83,6 +91,12 @@ class App extends Component {
     .then(response => {
       if(response.status === 200){
         this.apartmentIndex()
+      }
+      if(response.status === 404){
+      }
+      if(response.status === 422){
+      }
+      if(response.status === 500){
       }
       return response
     })
@@ -191,12 +205,32 @@ class App extends Component {
             } }
           />
 
-          // ERROR page not found msg
+          // 404 ERROR page not found msg
           <Route
             path="/notfound"
             render={ (props) => {
               return (
                 <NotFound />
+              )
+            } }
+          />
+
+          // 422 ERROR cannot process msg
+          <Route
+            path="/cannotprocess"
+            render={ (props) => {
+              return (
+                <CannotProcess />
+              )
+            } }
+          />
+
+          // 500 ERROR internal server msg
+          <Route
+            path="/internalserver"
+            render={ (props) => {
+              return (
+                <InternalServer />
               )
             } }
           />
